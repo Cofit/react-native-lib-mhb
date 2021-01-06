@@ -28,6 +28,22 @@ class MhbSdk: NSObject, MHBDelegate {
     func didStartProcSuccess() {
     }
 
+    func didStartProcFailureWithError(string: String) {
+
+    }
+
+    func didFetchDataSuccessWithFile(file: Data) {
+
+    }
+
+    func didFetchDataFailureWithError(string: String) {
+
+    }
+
+    func didMHBExit() {
+
+    }
+
     func didStartProcFalure(error: String) {
         self.startProcError = error
     }
