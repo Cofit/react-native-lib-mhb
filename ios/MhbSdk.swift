@@ -7,7 +7,7 @@
 //
 import UIKit
 import Foundation
-// import MHBSdk
+import MHBSdk
 
 enum SDKError: Error {
     case runtimeError(String)
