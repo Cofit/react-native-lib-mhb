@@ -17,5 +17,6 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.dependency "React"
   s.dependency "SSZipArchive"
-  s.dependency "MHBSdk"
+  s.vendored_frameworks "ios/frameworks/MHBSdk.framework"
+  s.vendored_frameworks "ios/frameworks/Alamofire.framework"
 end
