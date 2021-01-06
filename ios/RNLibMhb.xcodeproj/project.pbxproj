@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -11,6 +11,8 @@
 		97C42611233071510002C65E /* MhbSdk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97FCCC64232653400097D236 /* MhbSdk.swift */; };
 		97FCCC672326543B0097D236 /* MhbSdk.m in Sources */ = {isa = PBXBuildFile; fileRef = 97FCCC662326543B0097D236 /* MhbSdk.m */; };
 		B3E7B58A1CC2AC0600A0062D /* RNLibMhb.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNLibMhb.m */; };
+		CB63A53C25A57A3C00237345 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB63A53A25A57A3C00237345 /* Alamofire.framework */; platformFilter = ios; };
+		CB63A53D25A57A3C00237345 /* MHBSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CB63A53B25A57A3C00237345 /* MHBSdk.framework */; platformFilter = ios; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,15 +29,15 @@
 
 /* Begin PBXFileReference section */
 		134814201AA4EA6300B7C361 /* libRNLibMhb.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNLibMhb.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		970AA910232A306E001D6C84 /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		970C8AF52331D6DF00A67001 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
-		97C4260F23306FAC0002C65E /* SSZipArchive */ = {isa = PBXFileReference; lastKnownFileType = folder; name = SSZipArchive; path = ../../ios/Pods/SSZipArchive/SSZipArchive; sourceTree = "<group>"; };
 		97C4263D23307B910002C65E /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		97FCCC63232653400097D236 /* RNLibMhb-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RNLibMhb-Bridging-Header.h"; sourceTree = "<group>"; };
 		97FCCC64232653400097D236 /* MhbSdk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MhbSdk.swift; sourceTree = "<group>"; };
 		97FCCC662326543B0097D236 /* MhbSdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MhbSdk.m; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNLibMhb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLibMhb.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNLibMhb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLibMhb.m; sourceTree = "<group>"; };
+		CB63A53A25A57A3C00237345 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = frameworks/Alamofire.framework; sourceTree = "<group>"; };
+		CB63A53B25A57A3C00237345 /* MHBSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MHBSdk.framework; path = frameworks/MHBSdk.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB63A53C25A57A3C00237345 /* Alamofire.framework in Frameworks */,
+				CB63A53D25A57A3C00237345 /* MHBSdk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,9 +75,9 @@
 		970AA90F232A306E001D6C84 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CB63A53A25A57A3C00237345 /* Alamofire.framework */,
+				CB63A53B25A57A3C00237345 /* MHBSdk.framework */,
 				97C4263D23307B910002C65E /* libz.tbd */,
-				97C4260F23306FAC0002C65E /* SSZipArchive */,
-				970AA910232A306E001D6C84 /* libReact.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -129,6 +133,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = 58B511D21A9E6C8500147676;
@@ -178,6 +183,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/frameworks/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -222,6 +228,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/frameworks/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -244,13 +251,19 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/frameworks",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/../../node_modules/react-native/React",
+					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"/Users/charlie/dev/cofit/snowball/node_modules/react-native/React/Base/**",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNLibMhb;
@@ -268,13 +281,19 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/frameworks",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/../../node_modules/react-native/React",
+					"$(SRCROOT)/../node_modules/react-native/React/**",
+					"/Users/charlie/dev/cofit/snowball/node_modules/react-native/React/Base/**",
 				);
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = RNLibMhb;
