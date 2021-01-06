@@ -25,23 +25,22 @@ class MhbSdk: NSObject, MHBDelegate {
         let mhb = MHB.configure(APIKey: self.API_KEY)
     }
 
+    func didStartProcFailure(error: String) {
+    }
+
     func didStartProcSuccess() {
     }
 
     func didStartProcFailureWithError(string: String) {
-
     }
 
     func didFetchDataSuccessWithFile(file: Data) {
-
     }
 
     func didFetchDataFailureWithError(string: String) {
-
     }
 
     func didMHBExit() {
-
     }
 
     func didStartProcFalure(error: String) {
