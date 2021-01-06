@@ -25,10 +25,6 @@ class MhbSdk: NSObject, MHBDelegate {
         let mhb = MHB.configure(APIKey: self.API_KEY)
     }
 
-    func didStartProcFailure(error: String) {
-        print(error)
-    }
-
     func didStartProcSuccess() {
         print("onUIProcStart")
     }
@@ -45,7 +41,7 @@ class MhbSdk: NSObject, MHBDelegate {
     func didMHBExit() {
     }
 
-    func didStartProcFalure(error: String) {
+    func didStartProcFailure(error: String) {
         self.startProcError = error
     }
 
