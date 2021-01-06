@@ -7,7 +7,7 @@
 //
 import UIKit
 import Foundation
-import MHBSdk
+// import MHBSdk
 
 enum SDKError: Error {
     case runtimeError(String)
@@ -27,21 +27,21 @@ class MhbSdk: NSObject, MHBDelegate {
 
     func didStartProcSuccess() {
     }
-    
+
     func didStartProcFalure(error: String) {
         self.startProcError = error
     }
-    
+
     func didFetchDataSuccess(file: Data, serverKey: String) {
         self.file = file
         self.serverKey = serverKey
         self.isFetchSuccess = true
     }
-    
+
     func didFetchDataFailure(error: String) {
         self.fetchFailError = error
     }
-    
+
     func writeDataToZipFile(data: Data) throws -> String {
         //See https://www.hangge.com/blog/cache/detail_527.html
         let manager = FileManager.default
@@ -54,7 +54,7 @@ class MhbSdk: NSObject, MHBDelegate {
         writeHandler.write(data)
         return file.path
     }
-    
+
     func unZipFileWithPassword(zipPath: String) throws -> String {
         let unzipPath = tempUnzipPath()!
         let key = self.API_KEY + self.serverKey!
@@ -64,7 +64,7 @@ class MhbSdk: NSObject, MHBDelegate {
                                        password: key)
         return unzipPath
     }
-    
+
     func readDataFromFile(filePath: String) throws -> String {
         let fileManager = FileManager.default
         let directoryURL: URL = URL.init(string: filePath)!
@@ -81,7 +81,7 @@ class MhbSdk: NSObject, MHBDelegate {
             throw error
         }
     }
-    
+
     @objc
     func startProc(_ resolve: RCTPromiseResolveBlock, rejecter reject: RCTPromiseRejectBlock) -> Void {
         //先清File Tickets, 避免errorCode 101
@@ -98,7 +98,7 @@ class MhbSdk: NSObject, MHBDelegate {
             resolve("OK")
         }
     }
-    
+
     @objc
     func fetchData(_ startTimestamp: String, ets endTimestamp: String, resolver resolve: @escaping RCTPromiseResolveBlock, rejecter reject: @escaping RCTPromiseRejectBlock) -> Void {
         //var arrR: [String] = []
@@ -119,7 +119,7 @@ class MhbSdk: NSObject, MHBDelegate {
             reject(Key.ErrorMessage.noValidFileTicket, Key.ErrorMessage.noValidFileTicket, nil)
             return
         }
-        
+
         for item in arr {
             if item.key.contains("File_Ticket_") {
                 //依照start time/end time查詢前次SDK存入的File Ticket.
@@ -136,7 +136,7 @@ class MhbSdk: NSObject, MHBDelegate {
                             return
                         }
                     }
-                    
+
                     if (self.file != nil && self.serverKey != nil) {
                         do {
                             let zipPath = try self.writeDataToZipFile(data: self.file!)
@@ -147,30 +147,30 @@ class MhbSdk: NSObject, MHBDelegate {
                         } catch {
                             reject(error.localizedDescription, error.localizedDescription, nil)
                         }
-                        
+
                     } else {
                         self.fetchFailError = Key.ErrorMessage.fetchDataNil
                         reject(self.fetchFailError, self.fetchFailError, nil)
                     }
-                    
+
                 }
             }
         }
     }
-    
+
     //Utils Function, See https://github.com/ZipArchive/ZipArchive/blob/master/Example/SwiftExample/ViewController.swift
-    
+
     func tempZipPath() -> String {
         var path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0]
         path += "/\(UUID().uuidString).zip"
         return path
     }
-    
+
     func tempUnzipPath() -> String? {
         var path = NSSearchPathForDirectoriesInDomains(.cachesDirectory, .userDomainMask, true)[0]
         path += "/\(UUID().uuidString)"
         let url = URL(fileURLWithPath: path)
-        
+
         do {
             try FileManager.default.createDirectory(at: url, withIntermediateDirectories: true, attributes: nil)
         } catch {
