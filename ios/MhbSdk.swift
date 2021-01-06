@@ -26,9 +26,11 @@ class MhbSdk: NSObject, MHBDelegate {
     }
 
     func didStartProcFailure(error: String) {
+        print(error)
     }
 
     func didStartProcSuccess() {
+        print("onUIProcStart")
     }
 
     func didStartProcFailureWithError(string: String) {
