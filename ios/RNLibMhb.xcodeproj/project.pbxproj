@@ -36,8 +36,8 @@
 		97FCCC662326543B0097D236 /* MhbSdk.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MhbSdk.m; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNLibMhb.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNLibMhb.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNLibMhb.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNLibMhb.m; sourceTree = "<group>"; };
-		CB63A53A25A57A3C00237345 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = frameworks/Alamofire.framework; sourceTree = "<group>"; };
-		CB63A53B25A57A3C00237345 /* MHBSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MHBSdk.framework; path = frameworks/MHBSdk.framework; sourceTree = "<group>"; };
+		CB63A53A25A57A3C00237345 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
+		CB63A53B25A57A3C00237345 /* MHBSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MHBSdk.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,7 +183,7 @@
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/frameworks/**";
+				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -199,6 +199,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$SRCROOT/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -228,7 +229,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/frameworks/**";
+				FRAMEWORK_SEARCH_PATHS = "${SRCROOT}/**";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -237,6 +238,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$SRCROOT/**";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -251,7 +253,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/frameworks",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
@@ -281,7 +282,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/frameworks",
 				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
