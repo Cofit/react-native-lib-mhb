@@ -7,6 +7,7 @@
 //
 import UIKit
 import Foundation
+import Alamofire
 import MHBSdk
 
 enum SDKError: Error {
@@ -27,7 +28,7 @@ class MhbSdk: NSObject, MHBDelegate {
 
     @objc
     static func requiresMainQueueSetup() -> Bool {
-        return false
+        return true
     }
 
     func didStartProcSuccess() {
