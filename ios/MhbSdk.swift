@@ -25,6 +25,11 @@ class MhbSdk: NSObject, MHBDelegate {
         let mhb = MHB.configure(APIKey: self.API_KEY)
     }
 
+    @objc
+    static func requiresMainQueueSetup() -> Bool {
+        return false
+    }
+
     func didStartProcSuccess() {
         print("onUIProcStart")
     }

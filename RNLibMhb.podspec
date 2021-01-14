@@ -15,7 +15,8 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/Cofit/react-native-lib-mhb.git", :tag => "master" }
   s.source_files = "ios/**/*.{h,m,swift}"
   s.requires_arc = true
-  s.vendored_frameworks = "ios/frameworks/MHBSdk.framework", "ios/frameworks/Alamofire.framework"
+  s.vendored_frameworks = "ios/frameworks/MHBSdk.framework"#, "ios/frameworks/Alamofire.framework"
   s.dependency "React"
   s.dependency "SSZipArchive"
+  s.dependency "Alamofire"
 end
