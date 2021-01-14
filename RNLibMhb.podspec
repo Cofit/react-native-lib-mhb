@@ -19,4 +19,5 @@ Pod::Spec.new do |s|
   s.private_header_files = "ios/MHBSdk.framework/Headers/*.h", "ios/Alamofire.framework/Headers/*.h"
   s.dependency "React"
   s.dependency "SSZipArchive"
+  s.dependency "CryptoSwift", '~> 1.3.8'
 end

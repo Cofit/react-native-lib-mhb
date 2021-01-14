@@ -7,8 +7,8 @@
 //
 import UIKit
 import Foundation
-import Alamofire
 import MHBSdk
+import CryptoSwift
 
 enum SDKError: Error {
     case runtimeError(String)
@@ -76,7 +76,11 @@ class MhbSdk: NSObject, MHBDelegate {
 
     func unZipFileWithPassword(zipPath: String) throws -> String {
         let unzipPath = tempUnzipPath()!
-        let key = self.API_KEY + self.serverKey!
+        // let key = self.API_KEY + self.serverKey!
+        let password: Array<UInt8> = Array(self.API_KEY.utf8)
+        let salt: Array<UInt8> = Array(self.serverKey!.utf8)
+        let key = try PKCS5.PBKDF2(password: password, salt: salt, iterations: 1000, keyLength: 32, variant: .sha256).calculate()
+
         try SSZipArchive.unzipFile(atPath: zipPath,
                                        toDestination: unzipPath,
                                        overwrite: true,
