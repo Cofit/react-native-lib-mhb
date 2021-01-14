@@ -18,5 +18,5 @@ Pod::Spec.new do |s|
   s.vendored_frameworks = "ios/frameworks/MHBSdk.framework"#, "ios/frameworks/Alamofire.framework"
   s.dependency "React"
   s.dependency "SSZipArchive"
-  s.dependency "Alamofire"
+  s.dependency "Alamofire", '~> 4.8.2'
 end
