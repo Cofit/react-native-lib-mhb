@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   s.source_files = "ios/**/*.{h,m,swift}"
   s.requires_arc = true
   s.vendored_frameworks = "ios/MHBSdk.framework", "ios/Alamofire.framework"
-  s.private_header_files = "ios/Alamofire.framework/Headers/*.h"
+  s.private_header_files = "ios/MHBSdk.framework/Headers/*.h", "ios/Alamofire.framework/Headers/*.h"
   s.dependency "React"
   s.dependency "SSZipArchive"
 end
