@@ -16,14 +16,13 @@ enum SDKError: Error {
 
 @objc(MhbSdk)
 class MhbSdk: NSObject, MHBDelegate {
-    private let API_KEY = Key.MHBSDK.API_KEY
+    private var API_KEY: String = ""
     private var file: Data?
     private var serverKey: String?
     private var startProcError: String?
     private var fetchFailError: String?
     private var isFetchSuccess: Bool = false
     override init() {
-        let mhb = MHB.configure(APIKey: self.API_KEY)
     }
 
     @objc
@@ -79,7 +78,13 @@ class MhbSdk: NSObject, MHBDelegate {
         // let key = self.API_KEY + self.serverKey!
         let password: Array<UInt8> = Array(self.API_KEY.utf8)
         let salt: Array<UInt8> = Array(self.serverKey!.utf8)
-        let key = try PKCS5.PBKDF2(password: password, salt: salt, iterations: 1000, keyLength: 32, variant: .sha256).calculate()
+        let key = try PKCS5.PBKDF2(
+            password: password,
+            salt: salt,
+            iterations: 1000,
+            keyLength: 32,
+            variant: .sha1
+        ).calculate().toBase64()
 
         try SSZipArchive.unzipFile(atPath: zipPath,
                                        toDestination: unzipPath,
@@ -102,6 +107,14 @@ class MhbSdk: NSObject, MHBDelegate {
         } catch {
             print("Error while enumerating files \(directoryURL.path): \(error.localizedDescription)")
             throw error
+        }
+    }
+
+    @objc
+    func initialize(_ apiKey: String) -> Void {
+        self.API_KEY = apiKey
+        DispatchQueue.main.sync {
+            MHB.configure(APIKey: apiKey)
         }
     }
 

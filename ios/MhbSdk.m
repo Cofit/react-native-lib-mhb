@@ -11,6 +11,8 @@
 
 @interface RCT_EXTERN_MODULE(MhbSdk, NSObject)
 
+RCT_EXTERN_METHOD(initialize:(NSString *)apiKey)
+
 RCT_EXTERN_METHOD(startProc:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
 
 RCT_EXTERN_METHOD(fetchData:(NSString *)startTimestamp ets:(NSString *)endTimestamp resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject)
