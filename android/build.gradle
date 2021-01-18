@@ -29,6 +29,17 @@ android {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
     }
+    buildTypes {
+        release {
+            buildConfigField("String", "API_KEY", '"$rootProject.ext.MHBApiKey"')
+            buildConfigField("String", "ENOVALFT", '"NO_VALID_FILE_TICKET"')
+        }
+
+        debug{
+            buildConfigField("String", "API_KEY", '"$rootProject.ext.MHBApiKey"')
+            buildConfigField("String", "ENOVALFT", '"NO_VALID_FILE_TICKET"')
+        }
+    }
 }
 
 repositories {
