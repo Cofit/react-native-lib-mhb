@@ -38,13 +38,18 @@ repositories {
         url "$rootDir/../node_modules/react-native/android"
     }
     jcenter()
+    flatDir{
+        dirs 'libs'
+    }
 }
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
-    implementation project(":dexguard-runtime")
-    implementation project(":nhisdk_Beta1.07")
+    implementation(name:'dexguard-runtime', ext:'aar')
+    implementation(name:'nhisdk_Beta1.07', ext:'aar')
+    // implementation fileTree(dir: 'libs', include: ['*.jar', '*.aar'])
+    // implementation project(":dexguard-runtime")
+    // implementation project(":nhisdk_Beta1.07")
     implementation 'net.lingala.zip4j:zip4j:2.1.2'
     implementation "com.google.code.gson:gson:2.8.2" // for mhb sdk
     implementation "com.android.volley:volley:1.1.0" // for mhb sdk
