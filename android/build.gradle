@@ -56,10 +56,12 @@ android {
     buildTypes {
         release {
             buildConfigField("String", "API_KEY", "\"$rootProject.ext.MHBApiKey\"")
+            buildConfigField("String", "ENOVALFT", "\"${ENOVALFT}\"")
         }
 
         debug{
             buildConfigField("String", "API_KEY", "\"$rootProject.ext.MHBApiKey\"")
+            buildConfigField("String", "ENOVALFT", "\"${ENOVALFT}\"")
         }
     }
 }
