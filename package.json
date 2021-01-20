@@ -15,8 +15,12 @@
     "baseUrl": "https://github.com/Cofit/react-native-lib-mhb"
   },
   "homepage": "https://github.com/Cofit/react-native-lib-mhb",
-  "author": "",
+  "author": {
+    "name": "Charlie Hua",
+    "email": "charlie@cofit.me"
+  },
   "license": "MIT",
+  "licenseFilename": "LICENSE",
   "peerDependencies": {
     "react-native": "^0.63.0",
     "react-native-windows": "^0.63.0"
