@@ -1,6 +1,6 @@
 {
   "name": "react-native-lib-mhb",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "RN library to use MHBSdk",
   "main": "index.js",
   "scripts": {

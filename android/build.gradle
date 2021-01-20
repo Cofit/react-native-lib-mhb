@@ -55,13 +55,11 @@ android {
     }
     buildTypes {
         release {
-            buildConfigField("String", "API_KEY", '"$rootProject.ext.MHBApiKey"')
-            buildConfigField("String", "ENOVALFT", '"NO_VALID_FILE_TICKET"')
+            buildConfigField("String", "API_KEY", "\"$rootProject.ext.MHBApiKey\"")
         }
 
         debug{
-            buildConfigField("String", "API_KEY", '"$rootProject.ext.MHBApiKey"')
-            buildConfigField("String", "ENOVALFT", '"NO_VALID_FILE_TICKET"')
+            buildConfigField("String", "API_KEY", "\"$rootProject.ext.MHBApiKey\"")
         }
     }
 }
