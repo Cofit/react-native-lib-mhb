@@ -1,2 +1,0 @@
-//include ':nhisdk_Beta1.07', ':dexguard-runtime'
-include ':dexguard-runtime', ':nhisdk_Beta1.07'
